@@ -1,0 +1,25 @@
+@font-face {
+	font-family: Luckiest-Guy-Regular;
+	src: url(./resources/font/Luckiest_Guy/LuckiestGuy-Regular.ttf);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Luckiest-Guy-Regular", sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+canvas {
+	background-color: black;
+}
+
+.title {
+	padding: 32px;
+}
