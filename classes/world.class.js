@@ -6,9 +6,10 @@ class World {
         new PufferFish()
     ];
     backgroundObjects = [
-        new BackgroundObject('resources/img/3.Background/Layers/5.Water/D1.png', 720, 480),
-        new BackgroundObject('resources/img/3.Background/Layers/3.Fondo1/D1.png', 720, 430),
-        new BackgroundObject('resources/img/3.Background/Layers/2.Floor/D1.png', 720, 430)
+        new BackgroundObject('resources/img/3.Background/Layers/5.Water/D1.png'),
+        new BackgroundObject('resources/img/3.Background/Layers/3.Fondo1/D1.png'),
+        new BackgroundObject('resources/img/3.Background/Layers/4.Fondo2/D1.png'),
+        new BackgroundObject('resources/img/3.Background/Layers/2.Floor/D1.png')
     ];
     canvas;
     ctx;
