@@ -10,6 +10,7 @@ class Character extends MovableObject {
         'resources/img/1.Sharkie/3.Swim/5.png',
         'resources/img/1.Sharkie/3.Swim/6.png',
     ];
+    world;
 
     constructor() {
         super().loadImage('resources/img/1.Sharkie/3.Swim/1.png');
@@ -20,9 +21,11 @@ class Character extends MovableObject {
 
     animate() {
         setInterval(() => {
-            this.currentImage = (this.currentImage + 1) % this.IMAGES_SWIM.length;
-            let path = this.IMAGES_SWIM[this.currentImage];
-            this.img = this.imageCache[path];
+            if (this.world.keyboard.moveKeyPressed()) {
+                this.currentImage = (this.currentImage + 1) % this.IMAGES_SWIM.length;
+                let path = this.IMAGES_SWIM[this.currentImage];
+                this.img = this.imageCache[path];
+            }
         }, 125);
     }
 }
