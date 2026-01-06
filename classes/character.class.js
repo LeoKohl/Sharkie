@@ -27,26 +27,22 @@ class Character extends MovableObject {
                 this.x += this.speed;
                 this.otherDirection = false;
             }
-        }, 1000 / 60);
 
-        setInterval(() => {
             if (this.world.keyboard.LEFT) {
                 this.x -= this.speed;
                 this.otherDirection = true;
             }
-        }, 1000 / 60);
 
-
-        setInterval(() => {
             if (this.world.keyboard.UP) {
                 this.y -= this.speed;
             }
-        }, 1000 / 60);
 
-        setInterval(() => {
             if (this.world.keyboard.DOWN) {
                 this.y += this.speed;
             }
+
+            this.world.cameraX = -(this.x - 20);
+
         }, 1000 / 60);
 
         setInterval(() => {
