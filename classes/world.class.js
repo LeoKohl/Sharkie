@@ -1,19 +1,10 @@
 class World {
     character = new Character();
-    enemies = [
-        new PufferFish(),
-        new PufferFish(),
-        new PufferFish()
-    ];
-    backgroundObjects = [
-        new BackgroundObject('resources/img/3.Background/Layers/5.Water/D1.png'),
-        new BackgroundObject('resources/img/3.Background/Layers/3.Fondo1/D1.png'),
-        new BackgroundObject('resources/img/3.Background/Layers/4.Fondo2/D1.png'),
-        new BackgroundObject('resources/img/3.Background/Layers/2.Floor/D1.png')
-    ];
+    level = level1;
     canvas;
     ctx;
     keyboard;
+    cameraX = 0;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -30,9 +21,13 @@ class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.addObjArrToWorld(this.backgroundObjects);
-        this.addObjArrToWorld(this.enemies);
+        this.ctx.translate(this.cameraX, 0);
+
+        this.addObjArrToWorld(this.level.backgroundObjects);
+        this.addObjArrToWorld(this.level.enemies);
         this.addToWorld(this.character);
+
+        this.ctx.translate(-this.cameraX, 0);
 
         let self = this;
         requestAnimationFrame(() => self.draw());
@@ -50,12 +45,12 @@ class World {
         }
 
         this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
-        
+
         if (mo.otherDirection) {
             this.flipImageBack(mo);
         }
     }
-    
+
     flipImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
